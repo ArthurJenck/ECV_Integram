@@ -53,7 +53,7 @@ header {
     margin-bottom: 3.175rem;
 }
 
-/* Cette propriété sert à aligner le logo Instagram au centre du header */
+/* Cette propriété sert à aligner le logo Instagram au centre de son conteneur */
 .header-icone-logo-insta {
     display: flex;
     align-items: center;
@@ -381,7 +381,7 @@ aside {
         opacity: 0;
     }
 
-    /* Lorsque la checkbox est cochée, le menu burger descend et apparaît */
+    /* Lorsque la checkbox est cochée, le menu burger descend et apparaît. Pour ce qui est de l'apparition, j'ai bien évident regardé en mode prototype si la maquette avait des instructions sur les déplacements du menu burger ouvert, ou même sur les liens survolés en mode Desktop. Il n'y avait pas d'instruction sur Figma, donc j'aurais dû laisser par défaut pour coller à la demande client. Cela dit, vu que ce n'est qu'un exercice, autant montrer ce que je peux faire */
     .burger-toggle:checked~.burger-nav {
         transform: translate(0);
     }
