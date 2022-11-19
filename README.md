@@ -17,11 +17,15 @@ Prière de ne pas toucher au code, ça pourrait altérer ma note.
 
 ## Auteur et Remerciements
 
-#### Arthur Jenck, alias moi, auteur de ce code. Mon Portfolio temporaire : http://www.ajenck.ecv-monsite.fr
+##### Arthur Jenck, alias moi, auteur de ce code. Mon Portfolio temporaire : http://www.ajenck.ecv-monsite.fr
 
 Alexandre Morin, confrère développeur web qui m'a apporté beaucoup de connaissances.
 
 @Satvikpopli sur CodePen, qui m'a appris à créer un bon menu burger uniquement à l'aide de HTML et de CSS.
+
+Éric Caron, premier professeur de développement web, qui m'a appris les bases et m'a transmis sa passion.
+
+Manon Valdonio, actuelle professeure de développement web, et ses formidables conseils sur mon avenir et mes connaissances du moment.
 
 ## Statut du projet
 
