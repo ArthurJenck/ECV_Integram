@@ -11,12 +11,13 @@ font-family: 'Sora', sans-serif; */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap");
 /* Je définis les couleurs qui reviennent souvent, comme ça si d'un coup la charte graphique change je n'ai qu'à modifier ces valeurs et basta. Pareil pour un éventuel mode sombre */
 /* Ici on retrouve les commandes que j'ai mises dans ma templace de style.css, donc pour enlever les padding et margin par défaut de tous les éléments de la page. Je mets aussi la police utilisée dans tout le site, ici la Roboto. J'ai aussi mis une Verdana en police de secours */
-body, * {
+body,
+* {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Roboto', Verdana, sans-serif;
+  font-family: "Roboto", Verdana, sans-serif;
   color: #1E2A37;
 }
 
@@ -89,9 +90,8 @@ header {
   margin-right: 1rem;
 }
 
-/* On stylise un peu la searchbar pour la rendre plus moderne et épurée. Une transition est un peu là pour gratter des points bonus. Le padding est là pour que le curseur ne soit pas collé à la bordure lorsque l'utilisateur clique sur la barre de recherche */
 .searchbar {
-  background: #DBE5EE;
+  background: #dbe5ee;
   border-radius: 31px;
   width: 6.5rem;
   height: 3.75rem;
@@ -101,7 +101,6 @@ header {
   padding: 1rem 32% 1rem 1.5rem;
 }
 
-/* Lorsque l'utilisateur clique pour taper du texte, la barre de recherche s'allonge. N'ayant pas trouvé comment placer le curseur dans la barre de recherche, j'avais appliqué un cache-misère en mettant un text-align: center;. Après avoir pris une journée off, j'ai réalisé que j'étais très con et qu'un padding sur la barre suffisait */
 .searchbar:focus {
   width: 15rem;
   /* text-align: center; */
@@ -120,7 +119,7 @@ header {
 
 /* Pour le bouton, j'ai juste mis un background en dégradé et ai suivi les propriétés décrites sur la maquette Figma */
 .header-btn {
-  background: linear-gradient(220.96deg, #8C3AAA 9.21%, #DB3B75 49.47%, #F28F3D 91.44%);
+  background: linear-gradient(220.96deg, #8c3aaa 9.21%, #db3b75 49.47%, #f28f3d 91.44%);
   border: none;
   border-radius: 12px;
   font-size: 1.125rem;
@@ -142,7 +141,9 @@ header {
 }
 
 /* Pour l'instant, toute la partie du menu burger n'existe pas */
-.burger-toggle, .burger-nav, .burger-icon {
+.burger-toggle,
+.burger-nav,
+.burger-icon {
   display: none;
 }
 
@@ -300,7 +301,8 @@ aside {
   height: fit-content;
 }
 
-.stories-title, .actus-title {
+.stories-title,
+.actus-title {
   font-weight: 700;
   font-size: 1.875rem;
   margin-bottom: 1.25rem;
@@ -308,8 +310,8 @@ aside {
 
 .stories-icone {
   position: relative;
-  background: -webkit-gradient(linear, left top, left bottom, from(#833AB4), color-stop(50%, #FD1D1D), to(#FCB045));
-  background: linear-gradient(to bottom, #833AB4 0%, #FD1D1D 50%, #FCB045 100%);
+  background: -webkit-gradient(linear, left top, left bottom, from(#833ab4), color-stop(50%, #fd1d1d), to(#fcb045));
+  background: linear-gradient(to bottom, #833ab4 0%, #fd1d1d 50%, #fcb045 100%);
   padding: 1rem;
   max-width: 15vw;
   padding: 0.3125rem;
@@ -419,7 +421,7 @@ aside {
   /* ------------------------------------------ */
   /* Les z-index préparent pour le menu burger */
   header {
-    background-color: #1E2A37;
+    background-color: #1e2a37;
     -ms-grid-row: 1;
     -ms-grid-row-span: 1;
     -ms-grid-column: 1;
@@ -444,7 +446,9 @@ aside {
     display: none;
   }
   /* On fait maintenant apparaître tous les éléments du burger. On va ensuite les styliser */
-  .burger-toggle, .burger-nav, .burger-icon {
+  .burger-toggle,
+  .burger-nav,
+  .burger-icon {
     display: block;
   }
   /* On commence par la liste de liens du menu. Le texte est centré. Le menu burger est fixé pour occuper tout l'écran. La liste de liens n'a pas de puce. Le haut a un écart afin de faire de la place au header. Le padding en prend aussi compte. Les éléments sont tous dans une flexbox, direction colonne, et pour le moment le menu est caché au-dessus de l'écran visible */
@@ -475,8 +479,12 @@ aside {
     -webkit-transition: 0.2s ease-in-out;
     transition: 0.2s ease-in-out;
   }
-  /* Ici on prépare le texte du burger */
-  .burger-link, .burger-link h2, .burger-link h3 {
+  .burger-link {
+    color: #fff;
+    z-index: 2;
+  }
+  .burger-link h2,
+  .burger-link h3 {
     color: #fff;
     z-index: 2;
   }
@@ -536,21 +544,19 @@ aside {
     -ms-flex-line-pack: justify;
         align-content: space-between;
   }
-  /* Ces lignes justement sont définies juste ici pour occuper toute la largeur précise du container et de la checkbox */
   .burger-icon .line {
     background-color: #fff;
     border-radius: 1rem;
     width: 2.5rem;
     height: 5px;
   }
-  /* Encore pour me la pèter, j'ai mis une transition. Je la prépare en mettant l'origine à 10% des span, qui se trouve être le milieu des lignes */
-  .burger-icon .line1, .burger-icon .line3 {
+  .burger-icon .line1,
+  .burger-icon .line3 {
     -webkit-transform-origin: 10%;
             transform-origin: 10%;
     -webkit-transition: 0.2s all ease-in-out;
     transition: 0.2s all ease-in-out;
   }
-  /* Quand le toggle est coché, les deux lignes tournent légèrement sur elles-mêmes pour passer de délicieux pains à hamburger à une croix servant à fermer le menu */
   .burger-toggle:checked ~ .burger-icon .line1 {
     display: block;
     -webkit-transform: rotate(45deg);
@@ -561,7 +567,6 @@ aside {
     -webkit-transform: rotate(-45deg);
             transform: rotate(-45deg);
   }
-  /* La deuxième ligne ne sert plus à rien dans la croix, elle est donc cachée. Perspective d'amélioration : La faire tourner aussi pour former la croix avec ses deux comparses */
   .burger-toggle:checked ~ .burger-icon .line2 {
     visibility: hidden;
   }
@@ -727,11 +732,10 @@ aside {
     -ms-grid-column-span: 1;
     grid-area: 3 / 1 / 4 / 2;
   }
-  /* Même si ça m'a pas trop plus de faire ça, j'ai changé l'image dans la 3e couverture, car elle n'était pas pareille que celle de la version Desktop */
-  .actus-carte:nth-child(3) .actus-couv-pic {
+  .actus-carte:nth-child(3).actus-couv-pic {
     content: url(../img/mob-actu-photo-3.jpg);
   }
-  .actus-carte:nth-child(4) {
+  .actus-carte .actus-carte:nth-child(4) {
     -ms-grid-row: 4;
     -ms-grid-row-span: 1;
     -ms-grid-column: 1;
@@ -753,7 +757,7 @@ aside {
   }
   /* ------------------------------------------ */
   header {
-    background-color: #1E2A37;
+    background-color: #1e2a37;
     -ms-grid-row: 1;
     -ms-grid-row-span: 1;
     -ms-grid-column: 1;
@@ -775,8 +779,19 @@ aside {
   .search-container {
     display: none;
   }
-  .burger-toggle, .burger-nav, .burger-icon {
+  .burger-toggle,
+  .burger-nav,
+  .burger-icon {
     display: block;
+  }
+  .burger-link {
+    color: #fff;
+    z-index: 2;
+  }
+  .burger-link h2,
+  .burger-link h3 {
+    color: #fff;
+    z-index: 2;
   }
   .burger-nav {
     text-align: center;
@@ -863,19 +878,22 @@ aside {
     width: 2.5rem;
     height: 5px;
   }
-  .burger-icon .line1, .burger-icon .line3 {
+  .burger-icon .line1,
+  .burger-icon .line3 {
     -webkit-transform-origin: 10%;
             transform-origin: 10%;
     -webkit-transition: 0.2s all ease-in-out;
     transition: 0.2s all ease-in-out;
   }
-  .burger-toggle:checked ~ .burger-icon .line1 {
+  .burger-toggle:checked ~ .burger-icon .line1,
+  .burger-toggle:checked ~ .burger-icon .line2 {
     display: block;
+  }
+  .burger-toggle:checked ~ .burger-icon .line1 {
     -webkit-transform: rotate(45deg);
             transform: rotate(45deg);
   }
   .burger-toggle:checked ~ .burger-icon .line3 {
-    display: block;
     -webkit-transform: rotate(-45deg);
             transform: rotate(-45deg);
   }
@@ -946,7 +964,8 @@ aside {
     -ms-grid-column-span: 1;
     grid-area: 3 / 1 / 4 / 2;
   }
-  .stories-icone:nth-of-type(4), .stories-icone:nth-of-type(5) {
+  .stories-icone:nth-of-type(4),
+  .stories-icone:nth-of-type(5) {
     display: none;
   }
   .stories-title {
@@ -957,6 +976,9 @@ aside {
   }
   .stories-icone {
     min-width: 22.5vw;
+  }
+  .stories-icone:nth-of-type(4), .stories-icone:nth-of-type(5) {
+    display: none;
   }
   /* --------------------------------- */
   .actus {
@@ -975,14 +997,14 @@ aside {
     -ms-grid-columns: 100%;
         grid-template: repeat(4, auto)/100%;
   }
-  .actus-carte {
-    width: 100%;
-  }
   .actus-couv-pic {
     height: 27rem;
     width: 100%;
     -o-object-fit: cover;
        object-fit: cover;
+  }
+  .actus-carte {
+    width: 100%;
   }
   .actus-carte:nth-child(1) {
     -ms-grid-row: 1;
