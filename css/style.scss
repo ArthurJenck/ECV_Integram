@@ -387,7 +387,7 @@ aside {
 
     /* Ici on prépare le texte du burger */
     .burger-link, .burger-link h2, .burger-link h3 {
-        color: $text-couleur;
+        color: $blanc-pur;
         z-index: 2;
     }
 
@@ -684,10 +684,7 @@ aside {
         transition: 0.2s ease-in-out;
     }
 
-    .burger-link, .burger-link h2, .burger-link h3 {
-        color: $text-couleur;
-        z-index: 2;
-    }
+
 
     .burger-link:first-child {
         display: flex;
