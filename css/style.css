@@ -477,7 +477,7 @@ aside {
   }
   /* Ici on prépare le texte du burger */
   .burger-link, .burger-link h2, .burger-link h3 {
-    color: #1E2A37;
+    color: #fff;
     z-index: 2;
   }
   /* Le premier élément du menu burger consiste en le profil de l'utilisateur, et il est disposé en colonne centrée */
@@ -804,10 +804,6 @@ aside {
             transform: translateY(-100vh);
     -webkit-transition: 0.2s ease-in-out;
     transition: 0.2s ease-in-out;
-  }
-  .burger-link, .burger-link h2, .burger-link h3 {
-    color: #1E2A37;
-    z-index: 2;
   }
   .burger-link:first-child {
     display: -webkit-box;
