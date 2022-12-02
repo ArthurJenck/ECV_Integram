@@ -5,13 +5,16 @@ GLOBAL
 ---------------------------------------------------*/
 /* Auteur : Arthur Jenck
 Date : 
-Version : 1.2
+Version : 1.3
 Site de l'auteur : http://ajenck.ecv-monsite.fr */
 
 /* @import url('https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap');
 font-family: 'Sora', sans-serif; */
 
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap");
+
+// Bien qu'une partie de mon code ait été modifiée lors de la conversion en SASS, j'ai conservé mes commentaires et le code précédent pour garder une comparaison avant/après. Les commentaires sont également gardés en l'état.
+// /!\ JE SAIS QU'IL S'AGIT D'UNE MAUVAISE PRATIQUE ET N'EN FERAIS PAS UNE HABITUDE /!\
 
 /* Je définis les couleurs qui reviennent souvent, comme ça si d'un coup la charte graphique change je n'ai qu'à modifier ces valeurs et basta. Pareil pour un éventuel mode sombre */
 // Maintenant que ce fichier est un style en Sass, je n'ai plus besoin de toucher à la :root. Je peux importer mon fichier variables quand j'en aurai besoin
@@ -425,23 +428,43 @@ aside {
   //     z-index: 2;
   //   }
 
+  // /* Le premier élément du menu burger consiste en le profil de l'utilisateur, et il est disposé en colonne centrée */
+  // .burger-link:first-child {
+  //   display: flex;
+  //   flex-direction: column;
+  //   justify-content: center;
+  //   align-items: center;
+  // }
+
+  // .burger-link {
+  //   text-decoration: none;
+  //   font-size: 1.125rem;
+  //   font-weight: 500;
+  // }
+
   .burger-link {
     color: $blanc-pur;
     z-index: 2;
+    text-decoration: none;
+    font-size: 1.125rem;
+    font-weight: 500;
     h2,
     h3 {
       color: $blanc-pur;
       z-index: 2;
     }
+    &:first-child {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
   }
 
-  /* Le premier élément du menu burger consiste en le profil de l'utilisateur, et il est disposé en colonne centrée */
-  .burger-link:first-child {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
+  /* Lorsque la checkbox est cochée, le menu burger descend et apparaît. Pour ce qui est de l'apparition, j'ai bien évident regardé en mode prototype si la maquette avait des instructions sur les déplacements du menu burger ouvert, ou même sur les liens survolés en mode Desktop. Il n'y avait pas d'instruction sur Figma, donc j'aurais dû laisser par défaut pour coller à la demande client. Cela dit, vu que ce n'est qu'un exercice, autant montrer ce que je peux faire */
+  // .burger-toggle:checked ~ .burger-nav {
+  //   transform: translate(0);
+  // }
 
   /* L'input checkbox va toujours se trouver au même endroit dans le header, au-dessus de tout autre élément. Il est aussi caché et c'est là qu'a lieu l'astuce */
   .burger-toggle {
@@ -452,27 +475,23 @@ aside {
     top: 1.875rem;
     right: 1.25rem;
     opacity: 0;
-  }
-
-  /* Lorsque la checkbox est cochée, le menu burger descend et apparaît. Pour ce qui est de l'apparition, j'ai bien évident regardé en mode prototype si la maquette avait des instructions sur les déplacements du menu burger ouvert, ou même sur les liens survolés en mode Desktop. Il n'y avait pas d'instruction sur Figma, donc j'aurais dû laisser par défaut pour coller à la demande client. Cela dit, vu que ce n'est qu'un exercice, autant montrer ce que je peux faire */
-  .burger-toggle:checked ~ .burger-nav {
-    transform: translate(0);
-  }
-
-  /* L'icône du burger est visible, mais placée juste en-dessous du toggle, la checkbox. Comme ça, l'utilisateur clique sur l'icône mais coche en réalité la checkbox. Les lignes span à l'intérieur de la div container sont mises en colonnes */
-  .burger-icon {
-    position: fixed;
-    width: 2.5rem;
-    height: 1.6825rem;
-    z-index: 3;
-    top: 1.875rem;
-    right: 1.25rem;
-    opacity: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    align-content: space-between;
+    &:checked ~ .burger-nav {
+      transform: translate(0);
+    }
+    &:checked ~ .burger-icon {
+      .line1 {
+        display: block;
+        transform: rotate(45deg);
+      }
+      .line3 {
+        display: block;
+        transform: rotate(-45deg);
+      }
+      .line2 {
+        display: block;
+        transform: rotate(45deg);
+      }
+    }
   }
 
   //   /* Ces lignes justement sont définies juste ici pour occuper toute la largeur précise du container et de la checkbox */
@@ -490,17 +509,33 @@ aside {
   //     transition: 0.2s all ease-in-out;
   //   }
 
+  /* L'icône du burger est visible, mais placée juste en-dessous du toggle, la checkbox. Comme ça, l'utilisateur clique sur l'icône mais coche en réalité la checkbox. Les lignes span à l'intérieur de la div container sont mises en colonnes */
   .burger-icon {
+    position: fixed;
+    width: 2.5rem;
+    height: 1.6825rem;
+    z-index: 3;
+    top: 1.875rem;
+    right: 1.25rem;
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    align-content: space-between;
     .line {
       background-color: $blanc-pur;
       border-radius: 1rem;
       width: 2.5rem;
       height: 5px;
+      transition: 0.2s all ease-in-out;
     }
     .line1,
     .line3 {
       transform-origin: 10%;
-      transition: 0.2s all ease-in-out;
+    }
+    .line2 {
+      transform-origin: 15px 10%;
     }
   }
 
@@ -520,25 +555,19 @@ aside {
   //     visibility: hidden;
   //   }
 
-  .burger-toggle:checked ~ .burger-icon {
-    .line1 {
-      display: block;
-      transform: rotate(45deg);
-    }
-    .line3 {
-      display: block;
-      transform: rotate(-45deg);
-    }
-    .line2 {
-      visibility: hidden;
-    }
-  }
-
-  .burger-link {
-    text-decoration: none;
-    font-size: 1.125rem;
-    font-weight: 500;
-  }
+  // .burger-toggle:checked ~ .burger-icon {
+  //   .line1 {
+  //     display: block;
+  //     transform: rotate(45deg);
+  //   }
+  //   .line3 {
+  //     display: block;
+  //     transform: rotate(-45deg);
+  //   }
+  //   .line2 {
+  //     visibility: hidden;
+  //   }
+  // }
 
   .menu-title-name {
     font-weight: 500;
@@ -760,10 +789,19 @@ aside {
   .burger-link {
     color: $blanc-pur;
     z-index: 2;
+    text-decoration: none;
+    font-size: 1.125rem;
+    font-weight: 500;
     h2,
     h3 {
       color: $blanc-pur;
       z-index: 2;
+    }
+    &:first-child {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
   }
 
@@ -785,13 +823,6 @@ aside {
     transition: 0.2s ease-in-out;
   }
 
-  .burger-link:first-child {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
   .burger-toggle {
     position: fixed;
     width: 2.5rem;
@@ -800,39 +831,25 @@ aside {
     top: 1.875rem;
     right: 1.25rem;
     opacity: 0;
+    &:checked ~ .burger-nav {
+      transform: translate(0);
+    }
+    &:checked ~ .burger-icon {
+      .line1,
+      .line2 {
+        display: block;
+      }
+
+      .line1,
+      .line2 {
+        transform: rotate(45deg);
+      }
+
+      .line3 {
+        transform: rotate(-45deg);
+      }
+    }
   }
-
-  .burger-toggle:checked ~ .burger-nav {
-    transform: translate(0);
-  }
-
-  //   .burger-icon {
-  //     position: fixed;
-  //     width: 2.5rem;
-  //     height: 1.6825rem;
-  //     z-index: 3;
-  //     top: 1.875rem;
-  //     right: 1.25rem;
-  //     opacity: 1;
-  //     display: flex;
-  //     flex-direction: column;
-  //     justify-content: space-between;
-  //     align-items: center;
-  //     align-content: space-between;
-  //   }
-
-  //   .burger-icon .line {
-  //     background-color: $blanc-pur;
-  //     border-radius: 1rem;
-  //     width: 2.5rem;
-  //     height: 5px;
-  //   }
-
-  //   .burger-icon .line1,
-  //   .burger-icon .line3 {
-  //     transform-origin: 10%;
-  //     transition: 0.2s all ease-in-out;
-  //   }
 
   .burger-icon {
     position: fixed;
@@ -858,45 +875,10 @@ aside {
       transform-origin: 10%;
       transition: 0.2s all ease-in-out;
     }
-  }
-
-  //   .burger-toggle:checked ~ .burger-icon .line1 {
-  //     display: block;
-  //     transform: rotate(45deg);
-  //   }
-
-  //   .burger-toggle:checked ~ .burger-icon .line3 {
-  //     display: block;
-  //     transform: rotate(-45deg);
-  //   }
-
-  //   .burger-toggle:checked ~ .burger-icon .line2 {
-  //     visibility: hidden;
-  //   }
-
-  .burger-toggle:checked ~ .burger-icon {
-    .line1,
     .line2 {
-      display: block;
+      transform-origin: 15px 10%;
+      transition: 0.2s all ease-in-out;
     }
-
-    .line1 {
-      transform: rotate(45deg);
-    }
-
-    .line3 {
-      transform: rotate(-45deg);
-    }
-
-    .line2 {
-      visibility: hidden;
-    }
-  }
-
-  .burger-link {
-    text-decoration: none;
-    font-size: 1.125rem;
-    font-weight: 500;
   }
 
   .menu-title-name {
