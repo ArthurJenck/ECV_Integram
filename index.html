@@ -1,270 +1,273 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <!-- Encodage du jeu de caratères -->
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Lien vers le fichier CSS -->
-    <link rel="stylesheet" href="css/normalize.css" />
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-    />
-    <script
-      src="https://kit.fontawesome.com/bcc5e6c49a.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="./js/main.js"></script>
-    <script>
-      AOS.init();
-    </script>
-
-    <!-- Le titre de la page html ; 70 caractères maxi ; Sert au SEO ; S'affiche dans l'onglet du navigateur -->
-    <title>Instagram Intégration</title>
-    <link rel="icon" href="./img/favicon.webp" />
-    <!-- Descrition de la page avec 156 caractères au maximum -->
-    <meta
-      name="description"
-      content="Exercice d'intégration d'une imitation de profil Instagram, depuis une maquette Figma."
-    />
-  </head>
-
-  <body>
-    <!-- On commence par une balise <header> qui contiendra le logo d'Instagram, une barre de recherche et un bouton pour ajouter des photos sur son profil -->
-    <header>
-      <!-- Comme sur la plupart des sites, le logo est également un lien renvoyant vers la page d'accueil du site -->
-      <a href="./index.html" class="header-icone-logo-insta">
-        <!-- J'ai mis le logo en format SVG pour éviter les problèmes de résolution et de pixelisation, et je l'ai intégré avec une balise <img> plutôt qu'une balise svg car c'était beaucoup plus simple et allégeait le code -->
-        <img src="./img/instagram_logo.svg" alt="" class="header-logo" />
-        <!-- En prévision de la suite, j'ajoute également le logo du header en version mobile, qui, lui, sera blanc -->
-        <img
-          src="./img/instagram_logo_white.svg"
-          alt=""
-          class="header-logo-mobile"
+    <head>
+        <!-- Encodage du jeu de caratères -->
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- Lien vers le fichier CSS -->
+        <link rel="stylesheet" href="css/normalize.css" />
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css"
         />
-      </a>
-      <!-- Afin de mieux styliser le header et de rendre les flexbox plus fluides, je mets toute la partie recherche et ajout d'images dans une même div -->
-      <div class="search-container">
-        <div class="searchbar-container">
-          <!-- Pour que l'utilisateur puisse taper du texte dans la barre de recherche, je l'intègre en input -->
-          <input type="text" class="searchbar" />
-          <!-- Afin d'ajouter une icône venant d'une banque d'images, la balise <svg> est cette fois-ci plus efficace. Ainsi, si l'icône est mise à jour, elle le sera immédiatement sur mon site également -->
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 20 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            class="header-icone-recherche"
-          >
-            <path
-              d="M19.5625 18.549L14.1359 13.0937C15.4332 11.5284 16.0777 9.52356 15.9355 7.49553C15.7933 5.4675 14.8753 3.5722 13.3723 2.20328C11.8692 0.834362 9.89659 0.0970505 7.86413 0.144489C5.83168 0.191927 3.89561 1.02047 2.45805 2.45802C1.0205 3.89558 0.191958 5.83165 0.14452 7.8641C0.097081 9.89655 0.834393 11.8692 2.20331 13.3722C3.57223 14.8753 5.46754 15.7933 7.49556 15.9355C9.52359 16.0777 11.5285 15.4332 13.0937 14.1359L18.5491 19.5625L19.5625 18.549ZM1.59375 8.06247C1.59375 6.78307 1.97313 5.5324 2.68393 4.46862C3.39472 3.40484 4.405 2.57573 5.58701 2.08612C6.76902 1.59652 8.06967 1.46841 9.32449 1.71801C10.5793 1.96761 11.7319 2.5837 12.6366 3.48837C13.5413 4.39304 14.1574 5.54566 14.407 6.80048C14.6566 8.05529 14.5285 9.35594 14.0388 10.538C13.5492 11.72 12.7201 12.7302 11.6563 13.441C10.5926 14.1518 9.3419 14.5312 8.0625 14.5312C6.34688 14.5312 4.70153 13.8497 3.4884 12.6366C2.27527 11.4234 1.59375 9.77809 1.59375 8.06247Z"
-              fill="black"
-            />
-          </svg>
-        </div>
-
-        <button class="header-btn">
-          <img
-            src="./img/header-icone-ajout.svg"
-            alt=""
-            class="header-icone-ajout"
-          />
-          Ajouter photo
-        </button>
-      </div>
-    </header>
-
-    <!-- La partie suivante consiste à créer un menu burger en utilisant uniquement du HTML et CSS. Pas de Javascript, pas de blabla, pas de foutaises. Je suis obligé d'avouer que je me suis inspiré d'un CodePen pour apprendre comment faire, mais pour prouver que j'ai compris ce que je tapais, je vais tout détailler. On commence par créer un input en checkbox, qui prendra en compte le clic de l'utilisateur -->
-    <input type="checkbox" name="burger" class="burger-toggle" />
-    <!-- Ensuite la liste qui contiendra tous les éléments du sommaire dans le hamburger -->
-    <ul class="burger-nav">
-      <li>
-        <a href="#" class="burger-link"
-          ><img src="./img/burger-icon.svg" alt="" class="menu-profile-icon" />
-          <h2 class="menu-title-name">Jean Robinet</h2>
-          <h3 class="menu-username">@jean-lebarbu</h3></a
-        >
-      </li>
-      <!-- Pour un peu de funny fun et de liens internes, j'ai fait en sorte que les liens du burger Actualités et Stories ramènent sur les catégories correspondantes dans la page -->
-      <li><a href="#actualites" class="burger-link">Actualités</a></li>
-      <li><a href="#stories" class="burger-link">Stories</a></li>
-      <li><a href="#" class="burger-link">Notifications</a></li>
-      <li><a href="#" class="burger-link">Directs</a></li>
-      <li><a href="#" class="burger-link">Paramètres</a></li>
-      <li><a href="#" class="burger-link">Déconnexion</a></li>
-    </ul>
-    <!-- Ensuite, une petite div qui contiendra de quoi styliser un joli hamburger bien appétissant pour inciter l'utilisateur à cliquer -->
-    <div class="burger-icon">
-      <!-- Trois petits span qui deviendront de jolies lignes blanches -->
-      <span class="line line1"></span>
-      <span class="line line2"></span>
-      <span class="line line3"></span>
-    </div>
-    <!-- Le reste de la magie se passera dans le CSS -->
-
-    <!-- Au début, j'avais mis une grid dans mon body. Bien plus tard dans la programmation, lors du responsive, je me suis aperçu que ça posait quelques problèmes avec les width de tous les éléments. J'imagine qu'il aurait été possible de règler ça en laissant la grid sur le body, mais j'ai préféré faire ça développeur way en me prenant bien la tête et en changeant toutes mes grid-area et en mettant une balise main qui contiendra la nouvelle grid-template -->
-    <main>
-      <!-- La balise aside concerne des éléments sur le côté de la partie importante du site. C'est pourquoi plutôt qu'une énième div ou une autre section, bah j'ai mis un aside -->
-      <aside>
-        <img
-          src="./img/sidebar-photo-profil.jpg"
-          alt="Photo de profil"
-          class="sidebar-photo-profile"
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
         />
-        <img
-          src="./img/sidebar-user-icone.svg"
-          alt=""
-          class="sidebar-user-icon"
+        <script
+            src="https://kit.fontawesome.com/bcc5e6c49a.js"
+            crossorigin="anonymous"
+        ></script>
+        <script src="./js/main.js"></script>
+
+        <!-- Le titre de la page html ; 70 caractères maxi ; Sert au SEO ; S'affiche dans l'onglet du navigateur -->
+        <title>Instagram Intégration</title>
+        <link rel="icon" href="./img/favicon.webp" />
+        <!-- Descrition de la page avec 156 caractères au maximum -->
+        <meta
+            name="description"
+            content="Exercice d'intégration d'une imitation de profil Instagram, depuis une maquette Figma."
         />
-        <div class="sidebar-text-container">
-          <!-- Mon h1 consiste au nom de l'utilisateur de ce profil, Jean Robinet (drôle de nom mais qui suis-je pour juger). Comme ça, les gens qui cherchent ce gars tomberont sur son profil de photographe -->
-          <h1 class="profile-name">Jean Robinet</h1>
-          <h2 class="profile-username">@jean_lebarbu</h2>
-          <p class="profile-desc">
-            Salut, je m’appelle Jean et j’adore capturer le monde tel qu’il est.
-            Je suis designer freelance basé à Paris.
-          </p>
-          <div class="profile-numbers-container">
-            <!-- L'utilisation des balises <article> était peut-être un peu superflue, mais ça restait plus varié que des div -->
-            <article class="profile-numbers-single-article">
-              <h3 class="profile-numbers">20k</h3>
-              <h4 class="profile-numbers-name">abonnés</h4>
-            </article>
-            <article class="profile-numbers-single-article">
-              <h3 class="profile-numbers">432</h3>
-              <h4 class="profile-numbers-name">abonnements</h4>
-            </article>
-            <article class="profile-numbers-single-article">
-              <h3 class="profile-numbers">11k</h3>
-              <h4 class="profile-numbers-name">notifs</h4>
-            </article>
-          </div>
-        </div>
-      </aside>
+    </head>
 
-      <!-- Vu que je sais ce qu'est un hero, je frime en le mettant dans mes class. On m'a suggéré de mettre l'image dans le HTML, mais je trouvais beaucoup plus pratique de le mettre en background de la section. En plus le HTML était moins lourd comme ça. On peut argumenter que c'est mon CSS qui a pris, mais je pense que styliser l'image aurait été plus ou moins similaire -->
-      <section class="hero">
-        <h2 class="hero-title">Bienvenue</h2>
-        <h2 class="hero-username">@jean-lebarbu</h2>
-      </section>
+    <body>
+        <!-- On commence par une balise <header> qui contiendra le logo d'Instagram, une barre de recherche et un bouton pour ajouter des photos sur son profil -->
+        <header>
+            <!-- Comme sur la plupart des sites, le logo est également un lien renvoyant vers la page d'accueil du site -->
+            <a href="./index.html" class="header-icone-logo-insta">
+                <!-- J'ai mis le logo en format SVG pour éviter les problèmes de résolution et de pixelisation, et je l'ai intégré avec une balise <img> plutôt qu'une balise svg car c'était beaucoup plus simple et allégeait le code -->
+                <img
+                    src="./img/instagram_logo.svg"
+                    alt=""
+                    class="header-logo"
+                />
+                <!-- En prévision de la suite, j'ajoute également le logo du header en version mobile, qui, lui, sera blanc -->
+                <img
+                    src="./img/instagram_logo_white.svg"
+                    alt=""
+                    class="header-logo-mobile"
+                />
+            </a>
+            <!-- Afin de mieux styliser le header et de rendre les flexbox plus fluides, je mets toute la partie recherche et ajout d'images dans une même div -->
+            <div class="search-container">
+                <div class="searchbar-container">
+                    <!-- Pour que l'utilisateur puisse taper du texte dans la barre de recherche, je l'intègre en input -->
+                    <input type="text" class="searchbar" />
+                    <!-- Afin d'ajouter une icône venant d'une banque d'images, la balise <svg> est cette fois-ci plus efficace. Ainsi, si l'icône est mise à jour, elle le sera immédiatement sur mon site également -->
+                    <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 20 20"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="header-icone-recherche"
+                    >
+                        <path
+                            d="M19.5625 18.549L14.1359 13.0937C15.4332 11.5284 16.0777 9.52356 15.9355 7.49553C15.7933 5.4675 14.8753 3.5722 13.3723 2.20328C11.8692 0.834362 9.89659 0.0970505 7.86413 0.144489C5.83168 0.191927 3.89561 1.02047 2.45805 2.45802C1.0205 3.89558 0.191958 5.83165 0.14452 7.8641C0.097081 9.89655 0.834393 11.8692 2.20331 13.3722C3.57223 14.8753 5.46754 15.7933 7.49556 15.9355C9.52359 16.0777 11.5285 15.4332 13.0937 14.1359L18.5491 19.5625L19.5625 18.549ZM1.59375 8.06247C1.59375 6.78307 1.97313 5.5324 2.68393 4.46862C3.39472 3.40484 4.405 2.57573 5.58701 2.08612C6.76902 1.59652 8.06967 1.46841 9.32449 1.71801C10.5793 1.96761 11.7319 2.5837 12.6366 3.48837C13.5413 4.39304 14.1574 5.54566 14.407 6.80048C14.6566 8.05529 14.5285 9.35594 14.0388 10.538C13.5492 11.72 12.7201 12.7302 11.6563 13.441C10.5926 14.1518 9.3419 14.5312 8.0625 14.5312C6.34688 14.5312 4.70153 13.8497 3.4884 12.6366C2.27527 11.4234 1.59375 9.77809 1.59375 8.06247Z"
+                            fill="black"
+                        />
+                    </svg>
+                </div>
 
-      <!-- L'attribut id permet au lien interne du menu burger de trouver sa destination -->
-      <section class="stories" id="stories">
-        <h3 class="stories-title">Stories</h3>
-        <div class="profils-gallerie">
-          <!-- Alors bien que ce soit un peu la solution de la facilité, j'ai mis les bordures arc-en-ciel dans le SVG au moment de l'export depuis Figma. Jetez-moi des pierres, allez-y, développeur c'est un métier de fainéant de toute façon -->
-          <a href="#" class="stories-icone">
-            <img
-              src="./img/stories-icone-1.svg"
-              alt=""
-              class="stories-photos"
-            />
-          </a>
-          <a href="#" class="stories-icone">
-            <img
-              src="./img/stories-icone-2.svg"
-              alt=""
-              class="stories-photos"
-            />
-          </a>
-          <a href="#" class="stories-icone">
-            <img
-              src="./img/stories-icone-3.svg"
-              alt=""
-              class="stories-photos"
-            />
-          </a>
-          <a href="#" class="stories-icone">
-            <img
-              src="./img/stories-icone-4.svg"
-              alt=""
-              class="stories-photos"
-            />
-          </a>
-          <a href="#" class="stories-icone">
-            <img
-              src="./img/stories-icone-5.svg"
-              alt=""
-              class="stories-photos"
-            />
-          </a>
-        </div>
-      </section>
+                <button class="header-btn">
+                    <img
+                        src="./img/header-icone-ajout.svg"
+                        alt=""
+                        class="header-icone-ajout"
+                    />
+                    Ajouter photo
+                </button>
+            </div>
+        </header>
 
-      <section class="actus" id="actualites">
-        <h3 class="actus-title">Actualités</h3>
-        <div class="actus-cartes-container">
-          <article class="actus-carte">
-            <img
-              src="./img/actu-photo-1.jpg"
-              alt="Image d'actualités"
-              class="actus-couv-pic"
-            />
-            <div class="actus-user-profile">
-              <img
-                src="./img/actu-icone-1.svg"
-                alt=""
-                class="actus-user-photo"
-              />
-              <a href="#" class="actus-user-name">@bobo-poils</a>
-            </div>
-          </article>
-          <article class="actus-carte">
-            <img
-              src="./img/actu-photo-2.jpg"
-              alt="Image d'actualités"
-              class="actus-couv-pic"
-            />
-            <div class="actus-user-profile">
-              <img
-                src="./img/actu-icone-2.svg"
-                alt=""
-                class="actus-user-photo"
-              />
-              <a href="#" class="actus-user-name">@Cheveululu</a>
-            </div>
-          </article>
-          <article class="actus-carte">
-            <img
-              src="./img/actu-photo-3.jpg"
-              alt="Image d'actualités"
-              class="actus-couv-pic"
-            />
-            <div class="actus-user-profile">
-              <img
-                src="./img/actu-icone-3.svg"
-                alt=""
-                class="actus-user-photo"
-              />
-              <a href="#" class="actus-user-name">@barbapapa</a>
-            </div>
-          </article>
-          <article class="actus-carte">
-            <img
-              src="./img/actu-photo-4.jpg"
-              alt="Image d'actualités"
-              class="actus-couv-pic"
-            />
-            <div class="actus-user-profile">
-              <img
-                src="./img/actu-icone-4.svg"
-                alt=""
-                class="actus-user-photo"
-              />
-              <a href="#" class="actus-user-name">@lulunettes</a>
-            </div>
-          </article>
+        <!-- La partie suivante consiste à créer un menu burger en utilisant uniquement du HTML et CSS. Pas de Javascript, pas de blabla, pas de foutaises. Je suis obligé d'avouer que je me suis inspiré d'un CodePen pour apprendre comment faire, mais pour prouver que j'ai compris ce que je tapais, je vais tout détailler. On commence par créer un input en checkbox, qui prendra en compte le clic de l'utilisateur -->
+        <input type="checkbox" name="burger" class="burger-toggle" />
+        <!-- Ensuite la liste qui contiendra tous les éléments du sommaire dans le hamburger -->
+        <ul class="burger-nav">
+            <li>
+                <a href="#" class="burger-link"
+                    ><img
+                        src="./img/burger-icon.svg"
+                        alt=""
+                        class="menu-profile-icon"
+                    />
+                    <h2 class="menu-title-name">Jean Robinet</h2>
+                    <h3 class="menu-username">@jean-lebarbu</h3></a
+                >
+            </li>
+            <!-- Pour un peu de funny fun et de liens internes, j'ai fait en sorte que les liens du burger Actualités et Stories ramènent sur les catégories correspondantes dans la page -->
+            <li><a href="#actualites" class="burger-link">Actualités</a></li>
+            <li><a href="#stories" class="burger-link">Stories</a></li>
+            <li><a href="#" class="burger-link">Notifications</a></li>
+            <li><a href="#" class="burger-link">Directs</a></li>
+            <li><a href="#" class="burger-link">Paramètres</a></li>
+            <li><a href="#" class="burger-link">Déconnexion</a></li>
+        </ul>
+        <!-- Ensuite, une petite div qui contiendra de quoi styliser un joli hamburger bien appétissant pour inciter l'utilisateur à cliquer -->
+        <div class="burger-icon">
+            <!-- Trois petits span qui deviendront de jolies lignes blanches -->
+            <span class="line line1"></span>
+            <span class="line line2"></span>
+            <span class="line line3"></span>
         </div>
-      </section>
-    </main>
-  </body>
+        <!-- Le reste de la magie se passera dans le CSS -->
+
+        <!-- Au début, j'avais mis une grid dans mon body. Bien plus tard dans la programmation, lors du responsive, je me suis aperçu que ça posait quelques problèmes avec les width de tous les éléments. J'imagine qu'il aurait été possible de règler ça en laissant la grid sur le body, mais j'ai préféré faire ça développeur way en me prenant bien la tête et en changeant toutes mes grid-area et en mettant une balise main qui contiendra la nouvelle grid-template -->
+        <main>
+            <!-- La balise aside concerne des éléments sur le côté de la partie importante du site. C'est pourquoi plutôt qu'une énième div ou une autre section, bah j'ai mis un aside -->
+            <aside>
+                <img
+                    src="./img/sidebar-photo-profil.jpg"
+                    alt="Photo de profil"
+                    class="sidebar-photo-profile"
+                />
+                <img
+                    src="./img/sidebar-user-icone.svg"
+                    alt=""
+                    class="sidebar-user-icon"
+                />
+                <div class="sidebar-text-container">
+                    <!-- Mon h1 consiste au nom de l'utilisateur de ce profil, Jean Robinet (drôle de nom mais qui suis-je pour juger). Comme ça, les gens qui cherchent ce gars tomberont sur son profil de photographe -->
+                    <h1 class="profile-name">Jean Robinet</h1>
+                    <h2 class="profile-username">@jean_lebarbu</h2>
+                    <p class="profile-desc">
+                        Salut, je m’appelle Jean et j’adore capturer le monde
+                        tel qu’il est. Je suis designer freelance basé à Paris.
+                    </p>
+                    <div class="profile-numbers-container">
+                        <!-- L'utilisation des balises <article> était peut-être un peu superflue, mais ça restait plus varié que des div -->
+                        <article class="profile-numbers-single-article">
+                            <h3 class="profile-numbers">20k</h3>
+                            <h4 class="profile-numbers-name">abonnés</h4>
+                        </article>
+                        <article class="profile-numbers-single-article">
+                            <h3 class="profile-numbers">432</h3>
+                            <h4 class="profile-numbers-name">abonnements</h4>
+                        </article>
+                        <article class="profile-numbers-single-article">
+                            <h3 class="profile-numbers">11k</h3>
+                            <h4 class="profile-numbers-name">notifs</h4>
+                        </article>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Vu que je sais ce qu'est un hero, je frime en le mettant dans mes class. On m'a suggéré de mettre l'image dans le HTML, mais je trouvais beaucoup plus pratique de le mettre en background de la section. En plus le HTML était moins lourd comme ça. On peut argumenter que c'est mon CSS qui a pris, mais je pense que styliser l'image aurait été plus ou moins similaire -->
+            <section class="hero">
+                <h2 class="hero-title">Bienvenue</h2>
+                <h2 class="hero-username">@jean-lebarbu</h2>
+            </section>
+
+            <!-- L'attribut id permet au lien interne du menu burger de trouver sa destination -->
+            <section class="stories" id="stories">
+                <h3 class="stories-title">Stories</h3>
+                <div class="profils-gallerie">
+                    <!-- Alors bien que ce soit un peu la solution de la facilité, j'ai mis les bordures arc-en-ciel dans le SVG au moment de l'export depuis Figma. Jetez-moi des pierres, allez-y, développeur c'est un métier de fainéant de toute façon -->
+                    <a href="#" class="stories-icone">
+                        <img
+                            src="./img/stories-icone-1.svg"
+                            alt=""
+                            class="stories-photos"
+                        />
+                    </a>
+                    <a href="#" class="stories-icone">
+                        <img
+                            src="./img/stories-icone-2.svg"
+                            alt=""
+                            class="stories-photos"
+                        />
+                    </a>
+                    <a href="#" class="stories-icone">
+                        <img
+                            src="./img/stories-icone-3.svg"
+                            alt=""
+                            class="stories-photos"
+                        />
+                    </a>
+                    <a href="#" class="stories-icone">
+                        <img
+                            src="./img/stories-icone-4.svg"
+                            alt=""
+                            class="stories-photos"
+                        />
+                    </a>
+                    <a href="#" class="stories-icone">
+                        <img
+                            src="./img/stories-icone-5.svg"
+                            alt=""
+                            class="stories-photos"
+                        />
+                    </a>
+                </div>
+            </section>
+
+            <section class="actus" id="actualites">
+                <h3 class="actus-title">Actualités</h3>
+                <div class="actus-cartes-container">
+                    <article class="actus-carte">
+                        <img
+                            src="./img/actu-photo-1.jpg"
+                            alt="Image d'actualités"
+                            class="actus-couv-pic"
+                        />
+                        <div class="actus-user-profile">
+                            <img
+                                src="./img/actu-icone-1.svg"
+                                alt=""
+                                class="actus-user-photo"
+                            />
+                            <a href="#" class="actus-user-name">@bobo-poils</a>
+                        </div>
+                    </article>
+                    <article class="actus-carte">
+                        <img
+                            src="./img/actu-photo-2.jpg"
+                            alt="Image d'actualités"
+                            class="actus-couv-pic"
+                        />
+                        <div class="actus-user-profile">
+                            <img
+                                src="./img/actu-icone-2.svg"
+                                alt=""
+                                class="actus-user-photo"
+                            />
+                            <a href="#" class="actus-user-name">@Cheveululu</a>
+                        </div>
+                    </article>
+                    <article class="actus-carte">
+                        <img
+                            src="./img/actu-photo-3.jpg"
+                            alt="Image d'actualités"
+                            class="actus-couv-pic"
+                        />
+                        <div class="actus-user-profile">
+                            <img
+                                src="./img/actu-icone-3.svg"
+                                alt=""
+                                class="actus-user-photo"
+                            />
+                            <a href="#" class="actus-user-name">@barbapapa</a>
+                        </div>
+                    </article>
+                    <article class="actus-carte">
+                        <img
+                            src="./img/actu-photo-4.jpg"
+                            alt="Image d'actualités"
+                            class="actus-couv-pic"
+                        />
+                        <div class="actus-user-profile">
+                            <img
+                                src="./img/actu-icone-4.svg"
+                                alt=""
+                                class="actus-user-photo"
+                            />
+                            <a href="#" class="actus-user-name">@lulunettes</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </main>
+    </body>
 </html>
