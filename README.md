@@ -6,6 +6,10 @@ Un de mes projets en 2e année de Bachelor Chef de Projet Digital à l'ECV Digit
 
 Récupérez simplement les fichiers depuis le repository, puis visualisez-les à l'aide d'un IDE adapté au Web.
 
+## Aperçu hébergé
+
+Hébergement gratuit sur GitHub Pages : https://arthurjenck.github.io/ECV_Integram/
+
 ## Contribution
 
 Prière de ne pas toucher au code, ça pourrait altérer ma note.
