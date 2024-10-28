@@ -3,7 +3,7 @@
 GLOBAL
 ---------------------------------------------------*/
 /* Auteur : Arthur Jenck
-Date : 
+Date : 13/12/2022
 Version : 1.3
 Site de l'auteur : http://ajenck.ecv-monsite.fr */
 /* @import url('https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap');
@@ -13,8 +13,7 @@ font-family: 'Sora', sans-serif; */
 /* Ici on retrouve les commandes que j'ai mises dans ma templace de style.css, donc pour enlever les padding et margin par défaut de tous les éléments de la page. Je mets aussi la police utilisée dans tout le site, ici la Roboto. J'ai aussi mis une Verdana en police de secours */
 body,
 * {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-family: "Roboto", Verdana, sans-serif;
@@ -29,11 +28,8 @@ body {
 
 /* La balise <main> sert essentiellement à la grid. J'ai créé trois lignes, une pour le hero, une pour les stories et une pour les actualités. Les colonnes, il y en a une pour le aside, et une pour le reste des sections. Les lignes ont une hauteur qui s'adapte au contenu, excepté pour celle du hero. Celle-ci sera toujours à 19% de la hauteur de l'écran. Pour les colonnes, c'est le aside qui a une largeur définie. On a aussi un gap défini pour coller à la maquette figma, mais en rem pour s'adapter à des changements responsive */
 main {
-  display: -ms-grid;
   display: grid;
-  -ms-grid-rows: 36vh auto auto;
-  -ms-grid-columns: 19vw 1fr;
-      grid-template: 36vh auto auto / 19vw 1fr;
+  grid-template: 36vh auto auto/19vw 1fr;
   gap: 3.125rem;
 }
 
@@ -41,23 +37,15 @@ main {
 header {
   width: 100%;
   height: 3.75rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
   margin-bottom: 3.175rem;
 }
 
 /* Cette propriété sert à aligner le logo Instagram au centre de son conteneur */
 .header-icone-logo-insta {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
 }
 
 /* J'ai remarqué sur le document Figma que le logo n'était pas exactement au centre du header. J'ai alors ajouté une légère marge au bas du fichier */
@@ -72,15 +60,9 @@ header {
 }
 
 .search-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .searchbar-container {
@@ -96,11 +78,9 @@ header {
   width: 6.5rem;
   height: 3.75rem;
   border: none;
-  -webkit-transition: 0.2s all ease-in-out;
   transition: 0.2s all ease-in-out;
   padding: 1rem 32% 1rem 1.5rem;
 }
-
 .searchbar:focus {
   width: 15rem;
   /* text-align: center; */
@@ -123,12 +103,8 @@ header {
   border: none;
   border-radius: 12px;
   font-size: 1.125rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   height: 100%;
   cursor: pointer;
   color: #fff;
@@ -150,58 +126,29 @@ header {
 /* ---------------------------------------------- */
 /* Vu que j'ai vachement bien compris les grid, je peux me permettre d'économiser des lignes de code en mettant un rapide grid-area pour placer mon aside immédiatement dans la grid du main */
 aside {
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 3;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 1;
-  grid-area: 1 / 1 / span 3 / 2;
+  grid-area: 1/1/span 3/2;
   position: relative;
   background-color: #fff;
   border-radius: 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .sidebar-text-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .profile-numbers-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-items: center;
   text-align: center;
   width: 100%;
   padding: 0 1.375rem 2.25rem 1.375rem;
@@ -249,27 +196,14 @@ aside {
 
 /* ---------------------------------------- */
 .hero {
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 1;
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 1;
-  grid-area: 1 / 2 / 2 / 3;
+  grid-area: 1/2/2/3;
   background: url("../img/accueil-photo-bg.jpg");
   background-size: cover;
   border-radius: 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   position: relative;
 }
 
@@ -291,12 +225,7 @@ aside {
 
 /* ----------------------------------------- */
 .stories {
-  -ms-grid-row: 2;
-  -ms-grid-row-span: 1;
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 1;
-  grid-area: 2 / 2 / 3 / 3;
-  height: -webkit-fit-content;
+  grid-area: 2/2/3/3;
   height: -moz-fit-content;
   height: fit-content;
 }
@@ -310,21 +239,14 @@ aside {
 
 .stories-icone {
   position: relative;
-  background: -webkit-gradient(linear, left top, left bottom, from(#833ab4), color-stop(50%, #fd1d1d), to(#fcb045));
   background: linear-gradient(to bottom, #833ab4 0%, #fd1d1d 50%, #fcb045 100%);
   padding: 1rem;
   max-width: 15vw;
   padding: 0.3125rem;
   border-radius: 50%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .stories-photos {
@@ -335,51 +257,30 @@ aside {
 }
 
 .profils-gallerie {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
 }
 
 /* ---------------------------------------- */
 .actus {
-  -ms-grid-row: 3;
-  -ms-grid-row-span: 1;
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 1;
-  grid-area: 3 / 2 / 4 / 3;
+  grid-area: 3/2/4/3;
 }
 
 /* Ici, on a une autre grid pour les cartes d'actualité. 2 lignes égales, donc de 1fr chacune, et 3 colonnes égales elles-aussi. Il y a aussi un gap */
 .actus-cartes-container {
-  display: -ms-grid;
   display: grid;
-  -ms-grid-rows: (1fr)[2];
-  -ms-grid-columns: (1fr)[3];
-      grid-template: repeat(2, 1fr)/repeat(3, 1fr);
+  grid-template: repeat(2, 1fr)/repeat(3, 1fr);
   gap: 1.625rem;
 }
 
 .actus-carte {
   width: 100%;
 }
-
 .actus-carte:nth-child(3) {
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 2;
-  -ms-grid-column: 3;
-  -ms-grid-column-span: 1;
-  grid-area: 1 / 3 / span 2 / 4;
+  grid-area: 1/3/span 2/4;
 }
-
 .actus-carte:nth-child(4) {
-  -ms-grid-row: 2;
-  -ms-grid-row-span: 1;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
-  grid-area: 2 / 1 / 3 / span 2;
+  grid-area: 2/1/3/span 2;
 }
 
 .actus-couv-pic {
@@ -388,15 +289,9 @@ aside {
 }
 
 .actus-user-profile {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .actus-user-name {
@@ -413,20 +308,14 @@ aside {
   }
   /* Heureusement que j'ai utilisé un dsplay: grid;, maintenant je n'ai qu'à changer la template et la grid-area pour replacer la plupart des éléments. Le padding calcule la hauteur du header et y ajoute un petit écart */
   main {
-    -ms-grid-rows: (auto)[4];
-    -ms-grid-columns: 1fr;
-        grid-template: repeat(4, auto)/1fr;
-    padding: calc(3.125rem + 5.7rem) 1.25rem 3.125rem 1.25rem;
+    grid-template: repeat(4, auto)/1fr;
+    padding: 8.825rem 1.25rem 3.125rem 1.25rem;
   }
   /* ------------------------------------------ */
   /* Les z-index préparent pour le menu burger */
   header {
     background-color: #1e2a37;
-    -ms-grid-row: 1;
-    -ms-grid-row-span: 1;
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 1;
-    grid-area: 1 / 1 / 2 / 2;
+    grid-area: 1/1/2/2;
     padding: 1.875rem 1.25rem;
     margin-bottom: 0;
     position: fixed;
@@ -462,21 +351,11 @@ aside {
     background-color: #1E2A37;
     z-index: 1;
     padding: calc(15vh - 3rem) 30vw 22.5vh 30vw;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-transform: translateY(-100vh);
-            transform: translateY(-100vh);
-    -webkit-transition: 0.2s ease-in-out;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    transform: translateY(-100vh);
     transition: 0.2s ease-in-out;
   }
   .burger-link {
@@ -492,19 +371,10 @@ aside {
     z-index: 2;
   }
   .burger-link:first-child {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   /* Lorsque la checkbox est cochée, le menu burger descend et apparaît. Pour ce qui est de l'apparition, j'ai bien évident regardé en mode prototype si la maquette avait des instructions sur les déplacements du menu burger ouvert, ou même sur les liens survolés en mode Desktop. Il n'y avait pas d'instruction sur Figma, donc j'aurais dû laisser par défaut pour coller à la demande client. Cela dit, vu que ce n'est qu'un exercice, autant montrer ce que je peux faire */
   /* L'input checkbox va toujours se trouver au même endroit dans le header, au-dessus de tout autre élément. Il est aussi caché et c'est là qu'a lieu l'astuce */
@@ -518,23 +388,19 @@ aside {
     opacity: 0;
   }
   .burger-toggle:checked ~ .burger-nav {
-    -webkit-transform: translate(0);
-            transform: translate(0);
+    transform: translate(0);
   }
   .burger-toggle:checked ~ .burger-icon .line1 {
     display: block;
-    -webkit-transform: rotate(45deg);
-            transform: rotate(45deg);
+    transform: rotate(45deg);
   }
   .burger-toggle:checked ~ .burger-icon .line3 {
     display: block;
-    -webkit-transform: rotate(-45deg);
-            transform: rotate(-45deg);
+    transform: rotate(-45deg);
   }
   .burger-toggle:checked ~ .burger-icon .line2 {
     display: block;
-    -webkit-transform: rotate(45deg);
-            transform: rotate(45deg);
+    transform: rotate(45deg);
   }
   /* L'icône du burger est visible, mais placée juste en-dessous du toggle, la checkbox. Comme ça, l'utilisateur clique sur l'icône mais coche en réalité la checkbox. Les lignes span à l'intérieur de la div container sont mises en colonnes */
   .burger-icon {
@@ -545,38 +411,25 @@ aside {
     top: 1.875rem;
     right: 1.25rem;
     opacity: 1;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -ms-flex-line-pack: justify;
-        align-content: space-between;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    align-content: space-between;
   }
   .burger-icon .line {
     background-color: #fff;
     border-radius: 1rem;
     width: 2.5rem;
     height: 5px;
-    -webkit-transition: 0.2s all ease-in-out;
     transition: 0.2s all ease-in-out;
   }
   .burger-icon .line1,
   .burger-icon .line3 {
-    -webkit-transform-origin: 10%;
-            transform-origin: 10%;
+    transform-origin: 10%;
   }
   .burger-icon .line2 {
-    -webkit-transform-origin: 15px 10%;
-            transform-origin: 15px 10%;
+    transform-origin: 15px 10%;
   }
   .menu-title-name {
     font-weight: 500;
@@ -591,16 +444,9 @@ aside {
     width: 90vw;
   }
   aside {
-    -ms-grid-row: 1;
-    -ms-grid-row-span: 1;
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 1;
-    grid-area: 1 / 1 / 2 / 2;
+    grid-area: 1/1/2/2;
     width: 100%;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
+    flex-direction: row;
     height: calc(90vh - 5.7rem);
   }
   .sidebar-photo-profile {
@@ -621,18 +467,10 @@ aside {
     text-align: center;
   }
   .profile-numbers-container {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -ms-flex-line-pack: center;
-        align-content: center;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: center;
   }
   .profile-numbers-single-article {
     padding-bottom: 2rem;
@@ -645,11 +483,7 @@ aside {
   }
   /* ------------------------------- */
   .hero {
-    -ms-grid-row: 2;
-    -ms-grid-row-span: 1;
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 1;
-    grid-area: 2 / 1 / 3 / 2;
+    grid-area: 2/1/3/2;
     height: 20rem;
     width: 100%;
   }
@@ -665,11 +499,7 @@ aside {
   }
   /* --------------------------------- */
   .stories {
-    -ms-grid-row: 3;
-    -ms-grid-row-span: 1;
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 1;
-    grid-area: 3 / 1 / 4 / 2;
+    grid-area: 3/1/4/2;
     width: 100%;
   }
   .stories-title {
@@ -683,25 +513,18 @@ aside {
   }
   /* --------------------------------- */
   .actus {
-    -ms-grid-row: 4;
-    -ms-grid-row-span: 1;
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 1;
-    grid-area: 4 / 1 / 5 / 2;
+    grid-area: 4/1/5/2;
     width: 100%;
   }
   .actus-title {
     font-size: 1.5rem;
   }
   .actus-cartes-container {
-    -ms-grid-rows: (auto)[4];
-    -ms-grid-columns: 100%;
-        grid-template: repeat(4, auto)/100%;
+    grid-template: repeat(4, auto)/100%;
     margin: 0 auto;
     width: 60vw;
     background-color: #fff;
-    -webkit-box-sizing: content-box;
-            box-sizing: content-box;
+    box-sizing: content-box;
     padding: 5rem 10vw 5rem 10vw;
     border-radius: 20px;
   }
@@ -715,57 +538,34 @@ aside {
        object-fit: cover;
   }
   .actus-carte:nth-child(1) {
-    -ms-grid-row: 1;
-    -ms-grid-row-span: 1;
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 1;
-    grid-area: 1 / 1 / 2 / 2;
+    grid-area: 1/1/2/2;
   }
   .actus-carte:nth-child(2) {
-    -ms-grid-row: 2;
-    -ms-grid-row-span: 1;
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 1;
-    grid-area: 2 / 1 / 3 / 2;
+    grid-area: 2/1/3/2;
   }
   .actus-carte:nth-child(3) {
-    -ms-grid-row: 3;
-    -ms-grid-row-span: 1;
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 1;
-    grid-area: 3 / 1 / 4 / 2;
+    grid-area: 3/1/4/2;
   }
   .actus-carte:nth-child(3).actus-couv-pic {
     content: url(../img/mob-actu-photo-3.jpg);
   }
   .actus-carte .actus-carte:nth-child(4) {
-    -ms-grid-row: 4;
-    -ms-grid-row-span: 1;
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 1;
-    grid-area: 4 / 1 / 5 / 2;
+    grid-area: 4/1/5/2;
   }
 }
-
 /* On passe au responsive mobile, la commande aurait pu être plus courte mais j'ai l'habitude de mettre all and, et en plus ça rend hommage à Éric, mon professeur de l'année dernière. La plupart des commandes sont exactement les mêmes que dans le responsive tablette et c'est normal, peu d'éléments changent de l'un à l'autre. */
 @media all and (max-width: 600px) {
   body {
     padding: 0;
   }
   main {
-    -ms-grid-rows: (auto)[4];
-    -ms-grid-columns: 1fr;
-        grid-template: repeat(4, auto)/1fr;
-    padding: calc(3.125rem + 5.7rem) 1.25rem 3.125rem 1.25rem;
+    grid-template: repeat(4, auto)/1fr;
+    padding: 8.825rem 1.25rem 3.125rem 1.25rem;
   }
   /* ------------------------------------------ */
   header {
     background-color: #1e2a37;
-    -ms-grid-row: 1;
-    -ms-grid-row-span: 1;
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 1;
-    grid-area: 1 / 1 / 2 / 2;
+    grid-area: 1/1/2/2;
     padding: 1.875rem 1.25rem;
     margin-bottom: 0;
     position: fixed;
@@ -800,19 +600,10 @@ aside {
     z-index: 2;
   }
   .burger-link:first-child {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   .burger-nav {
     text-align: center;
@@ -824,21 +615,11 @@ aside {
     background-color: #1E2A37;
     z-index: 1;
     padding: calc(15vh - 3rem) 30vw 22.5vh 30vw;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-transform: translateY(-100vh);
-            transform: translateY(-100vh);
-    -webkit-transition: 0.2s ease-in-out;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    transform: translateY(-100vh);
     transition: 0.2s ease-in-out;
   }
   .burger-toggle {
@@ -851,8 +632,7 @@ aside {
     opacity: 0;
   }
   .burger-toggle:checked ~ .burger-nav {
-    -webkit-transform: translate(0);
-            transform: translate(0);
+    transform: translate(0);
   }
   .burger-toggle:checked ~ .burger-icon .line1,
   .burger-toggle:checked ~ .burger-icon .line2 {
@@ -860,12 +640,10 @@ aside {
   }
   .burger-toggle:checked ~ .burger-icon .line1,
   .burger-toggle:checked ~ .burger-icon .line2 {
-    -webkit-transform: rotate(45deg);
-            transform: rotate(45deg);
+    transform: rotate(45deg);
   }
   .burger-toggle:checked ~ .burger-icon .line3 {
-    -webkit-transform: rotate(-45deg);
-            transform: rotate(-45deg);
+    transform: rotate(-45deg);
   }
   .burger-icon {
     position: fixed;
@@ -875,21 +653,11 @@ aside {
     top: 1.875rem;
     right: 1.25rem;
     opacity: 1;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -ms-flex-line-pack: justify;
-        align-content: space-between;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    align-content: space-between;
   }
   .burger-icon .line {
     background-color: #fff;
@@ -899,15 +667,11 @@ aside {
   }
   .burger-icon .line1,
   .burger-icon .line3 {
-    -webkit-transform-origin: 10%;
-            transform-origin: 10%;
-    -webkit-transition: 0.2s all ease-in-out;
+    transform-origin: 10%;
     transition: 0.2s all ease-in-out;
   }
   .burger-icon .line2 {
-    -webkit-transform-origin: 15px 10%;
-            transform-origin: 15px 10%;
-    -webkit-transition: 0.2s all ease-in-out;
+    transform-origin: 15px 10%;
     transition: 0.2s all ease-in-out;
   }
   .menu-title-name {
@@ -923,11 +687,7 @@ aside {
     width: 90vw;
   }
   aside {
-    -ms-grid-row: 1;
-    -ms-grid-row-span: 1;
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 1;
-    grid-area: 1 / 1 / 2 / 2;
+    grid-area: 1/1/2/2;
     width: 100%;
   }
   .sidebar-photo-profile {
@@ -937,18 +697,14 @@ aside {
        object-position: top;
   }
   .sidebar-user-icon {
-    top: calc(18.75rem - 4rem - 0.84rem);
+    top: 13.91rem;
   }
   .profile-numbers-container {
     padding-bottom: 2rem;
   }
   /* ------------------------------- */
   .hero {
-    -ms-grid-row: 2;
-    -ms-grid-row-span: 1;
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 1;
-    grid-area: 2 / 1 / 3 / 2;
+    grid-area: 2/1/3/2;
     height: 9.5625rem;
   }
   .hero-title {
@@ -963,11 +719,7 @@ aside {
   }
   /* --------------------------------- */
   .stories {
-    -ms-grid-row: 3;
-    -ms-grid-row-span: 1;
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 1;
-    grid-area: 3 / 1 / 4 / 2;
+    grid-area: 3/1/4/2;
   }
   .stories-icone:nth-of-type(4),
   .stories-icone:nth-of-type(5) {
@@ -987,20 +739,14 @@ aside {
   }
   /* --------------------------------- */
   .actus {
-    -ms-grid-row: 4;
-    -ms-grid-row-span: 1;
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 1;
-    grid-area: 4 / 1 / 5 / 2;
+    grid-area: 4/1/5/2;
     width: 100%;
   }
   .actus-title {
     font-size: 1.5rem;
   }
   .actus-cartes-container {
-    -ms-grid-rows: (auto)[4];
-    -ms-grid-columns: 100%;
-        grid-template: repeat(4, auto)/100%;
+    grid-template: repeat(4, auto)/100%;
   }
   .actus-couv-pic {
     height: 27rem;
@@ -1012,35 +758,18 @@ aside {
     width: 100%;
   }
   .actus-carte:nth-child(1) {
-    -ms-grid-row: 1;
-    -ms-grid-row-span: 1;
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 1;
-    grid-area: 1 / 1 / 2 / 2;
+    grid-area: 1/1/2/2;
   }
   .actus-carte:nth-child(2) {
-    -ms-grid-row: 2;
-    -ms-grid-row-span: 1;
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 1;
-    grid-area: 2 / 1 / 3 / 2;
+    grid-area: 2/1/3/2;
   }
   .actus-carte:nth-child(3) {
-    -ms-grid-row: 3;
-    -ms-grid-row-span: 1;
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 1;
-    grid-area: 3 / 1 / 4 / 2;
+    grid-area: 3/1/4/2;
   }
   .actus-carte:nth-child(3) .actus-couv-pic {
     content: url(../img/mob-actu-photo-3.jpg);
   }
   .actus-carte:nth-child(4) {
-    -ms-grid-row: 4;
-    -ms-grid-row-span: 1;
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 1;
-    grid-area: 4 / 1 / 5 / 2;
+    grid-area: 4/1/5/2;
   }
-}
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */
